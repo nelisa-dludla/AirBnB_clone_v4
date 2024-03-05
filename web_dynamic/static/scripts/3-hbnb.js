@@ -66,21 +66,10 @@ $(document).ready(function() {
                             <div class="number_rooms">${place.number_rooms} ${roomType}</div>
                             <div class="number_bathrooms">${place.number_bathrooms} ${bathroomType}</div>
                         </div>
-                        <div class="user">
-                        </div>
                         <div class="description">
                             ${place.description}
                         </div>
                     </article>`);
-
-                $.ajax({
-                    url: 'http://0.0.0.0:5001/api/v1/users/' + place.user_id,
-                    type: 'GET',
-                    success: function(response) {
-                        const userDivEle = $('div.user');
-                        userDivEle.html(`<b>Owner:</b> ${response.first_name} ${response.last_name}`);
-                    },
-                });
             });
         }
     });
